@@ -1,21 +1,27 @@
-fx_version 'cerulean'
-game 'gta5'
+fx_version("adamant")
 
-lua54 'yes'
+game("gta5")
+lua54("yes")
+description("point seell")
+version("1.0.2")
 
-author 'bitpredator'
-description 'bpt_pointsale for fivem, compatible with esx'
-version '0.0.3'
+shared_script("@es_extended/imports.lua")
 
-description 'bpt_pointsale'
-
-client_scripts {
+server_scripts({
+    "@oxmysql/lib/MySQL.lua",
+    "@es_extended/locale.lua",
+    "locales/*.lua",
     "config.lua",
-    "client.lua"
-}
+    "server/main.lua",
+})
 
-server_scripts {
-    "@mysql-async/lib/MySQL.lua",
+client_scripts({
+    "@es_extended/locale.lua",
+    "locales/*.lua",
     "config.lua",
-    "server.lua"
-}
+    "client/main.lua",
+})
+
+dependencies({
+    "es_extended",
+})
